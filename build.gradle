@@ -5,50 +5,48 @@ plugins {
 
 ext {
     springCloudVersion = 'Hoxton.SR1'
+    springBootVersion = '2.2.4.RELEASE'
     javaxServletApiVersion = '4.0.1'
     lombokVersion = '1.18.10'
     jupiterVersion = '5.6.0'
+    graphqlJavaVersion = '14.0'
+    graphqlJavaToolsVersion = '5.2.4'
 }
 
 allprojects {
-    // needed because of multi-module configuration
-    apply plugin: 'jacoco'
     apply plugin: 'io.spring.dependency-management'
-    apply plugin: 'java'
-
-    sourceCompatibility = JavaVersion.VERSION_13
-    targetCompatibility = JavaVersion.VERSION_13
-
-    compileJava {
-        options.encoding = 'UTF-8'
-    }
-
-    compileTestJava {
-        options.encoding = 'UTF-8'
-    }
-
-    group 'rednavis'
-    version '1.0-SNAPSHOT'
-
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
 
     dependencyManagement {
         dependencies {
             //Server
             imports {
-                mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+                mavenBom "org.springframework.cloud:spring-cloud-starter-parent:${springCloudVersion}"
             }
 
             dependency("javax.servlet:javax.servlet-api:${javaxServletApiVersion}")
+            dependency("com.graphql-java:graphql-java:${graphqlJavaVersion}")
+            dependency("com.graphql-java:graphql-java-tools:${graphqlJavaToolsVersion}")
             dependency("org.projectlombok:lombok:${lombokVersion}")
 
             //Test
             dependency("org.junit.jupiter:junit-jupiter:${jupiterVersion}")
         }
     }
+}
+
+// assumed that all subprojects are java-based modules
+subprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    // needed because of multi-module configuration
+    apply plugin: 'jacoco'
+    apply plugin: 'java'
+
+    apply from: "${rootDir}/gradle/java.gradle"
+    apply from: "${rootDir}/gradle/checkstyle.gradle"
 
     dependencies {
         compile('org.projectlombok:lombok')
@@ -57,21 +55,6 @@ allprojects {
         testCompile("org.junit.jupiter:junit-jupiter")
         testCompile('org.springframework.boot:spring-boot-starter-test')
     }
-
-    configurations {
-        testAnnotationProcessor.extendsFrom annotationProcessor
-    }
-
-    test {
-        useJUnitPlatform()
-    }
-}
-
-// assumed that all subprojects are java-based modules
-subprojects {
-
-    apply from: "${rootDir}/gradle/java.gradle"
-    apply from: "${rootDir}/gradle/checkstyle.gradle"
 
     jacocoTestReport {
         reports {

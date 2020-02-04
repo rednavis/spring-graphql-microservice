@@ -1,2 +1,5 @@
 rootProject.name = 'spring-graphql-microservice'
 include 'discovery-service'
+include 'employee-client'
+include 'core'
+
