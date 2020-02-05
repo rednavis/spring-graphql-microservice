@@ -1,9 +1,9 @@
 spring:
   application:
-    name: employee-client
+    name: department-client
 
 server:
-  port: 8092
+  port: 8091
 
 eureka:
   client:

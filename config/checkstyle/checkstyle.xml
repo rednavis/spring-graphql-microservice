@@ -322,7 +322,7 @@
   <property name="charset" value="UTF-8"/>
 
   <!-- Check to find calls to print to the console -->
-  <property name="severity" value="warning"/>
+  <property name="severity" value="error"/>
 
   <property name="fileExtensions" value="java, properties, xml"/>
 
