@@ -5,4 +5,36 @@ services:
     image: mongo:latest
     restart: always
     ports:
-      - "27017:27017"
+      - '27017:27017'
+
+  discovery-service:
+    image: discovery-service
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod'
+    ports:
+      - '8761:8761'
+
+  organization-client:
+    image: organization-client
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod'
+    ports:
+      - '8091:8091'
+
+  department-client:
+    image: department-client
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod'
+    ports:
+      - '8092:8092'
+
+  employee-client:
+    image: employee-client
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - 'SPRING_PROFILES_ACTIVE=prod'
+    ports:
+      - '8093:8093'

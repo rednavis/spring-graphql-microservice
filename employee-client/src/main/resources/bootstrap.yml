@@ -3,18 +3,21 @@ spring:
     name: employee-client
 
 server:
-  port: 8092
+  port: 8093
 
 eureka:
+  instance:
+    hostname: localhost
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: false
+    leaseRenewalIntervalInSeconds: 5
+    lease-expiration-duration-in-seconds: 5
   client:
+    fetchRegistry: true
+    registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
 
 logging:
   pattern:

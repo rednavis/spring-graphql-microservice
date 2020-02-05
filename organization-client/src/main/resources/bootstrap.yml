@@ -1,6 +1,24 @@
 spring:
   application:
     name: organization-client
-  cloud:
-    config:
-      uri: http://localhost:8088
+
+server:
+  port: 8091
+
+eureka:
+  instance:
+    hostname: localhost
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: false
+    leaseRenewalIntervalInSeconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    fetchRegistry: true
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
