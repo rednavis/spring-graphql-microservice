@@ -2,38 +2,19 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.2.4.RELEASE' apply false
     id 'com.google.cloud.tools.jib' version '2.0.0' apply false
+//    id 'com.apollographql.apollo' version '1.3.0' apply false
 }
 
 ext {
     springCloudVersion = 'Hoxton.SR1'
     springBootVersion = '2.2.4.RELEASE'
     javaxServletApiVersion = '4.0.1'
+//    vertxVersion = '3.8.5'
+    swaggerVersion = '2.9.2'
     lombokVersion = '1.18.10'
     jupiterVersion = '5.6.0'
-    graphqlJavaVersion = '14.0'
-    graphqlJavaToolsVersion = '5.2.4'
-}
-
-allprojects {
-    apply plugin: 'io.spring.dependency-management'
-
-    dependencyManagement {
-        dependencies {
-            //Server
-            imports {
-//                mavenBom("org.springframework.cloud:spring-cloud-starter-parent:${springCloudVersion}")
-                mavenBom("org.springframework.cloud:spring-cloud-starter-parent:Hoxton.SR1")
-            }
-
-            dependency("javax.servlet:javax.servlet-api:${javaxServletApiVersion}")
-            dependency("com.graphql-java:graphql-java:${graphqlJavaVersion}")
-            dependency("com.graphql-java:graphql-java-tools:${graphqlJavaToolsVersion}")
-            dependency("org.projectlombok:lombok:${lombokVersion}")
-
-            //Test
-            dependency("org.junit.jupiter:junit-jupiter:${jupiterVersion}")
-        }
-    }
+//    graphqlJavaVersion = '14.0'
+//    graphqlJavaToolsVersion = '5.2.4'
 }
 
 // assumed that all subprojects are java-based modules
@@ -46,9 +27,32 @@ subprojects {
     // needed because of multi-module configuration
     apply plugin: 'jacoco'
     apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
 
     apply from: "${rootDir}/gradle/java.gradle"
     apply from: "${rootDir}/gradle/checkstyle.gradle"
+
+    dependencyManagement {
+        dependencies {
+            //Server
+            imports {
+                mavenBom("org.springframework.cloud:spring-cloud-starter-parent:${springCloudVersion}")
+            }
+
+            dependency("javax.servlet:javax.servlet-api:${javaxServletApiVersion}")
+//            dependency("io.vertx:vertx-web-graphql:${vertxVersion}")
+//            dependency("com.graphql-java:graphql-java:${graphqlJavaVersion}")
+//            dependency("com.graphql-java:graphql-java-tools:${graphqlJavaToolsVersion}")
+
+            dependency("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+            dependency("io.springfox:springfox-swagger2:${swaggerVersion}")
+
+            dependency("org.projectlombok:lombok:${lombokVersion}")
+
+            //Test
+            dependency("org.junit.jupiter:junit-jupiter:${jupiterVersion}")
+        }
+    }
 
     dependencies {
         compile('org.projectlombok:lombok')

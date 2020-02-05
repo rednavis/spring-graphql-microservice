@@ -9,8 +9,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-actuator')
 
-    implementation('com.graphql-java:graphql-java')
-    implementation('com.graphql-java:graphql-java-tools')
+    implementation('io.springfox:springfox-swagger2')
 }
 
 jib {
@@ -21,7 +20,6 @@ jib {
         image = "organization-client:latest"
     }
     container {
-        ports = ["8091"]
         creationTime = "USE_CURRENT_TIMESTAMP"
     }
 }

@@ -1,9 +1,9 @@
 spring:
   application:
-    name: employee-client
+    name: zuul-service
 
 server:
-  port: 0
+  port: 8090
 
 eureka:
   instance:
@@ -18,6 +18,18 @@ eureka:
     registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    department:
+      path: /department/**
+      serviceId: department-client
+    employee:
+      path: /employee/**
+      serviceId: employee-client
+    organization:
+      path: /organization/**
+      serviceId: organization-client
 
 logging:
   pattern:

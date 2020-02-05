@@ -4,4 +4,5 @@ include 'employee-client'
 include 'core'
 include 'department-client'
 include 'organization-client'
+include 'zuul-service'
 
