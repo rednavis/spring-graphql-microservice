@@ -15,5 +15,21 @@
 * http://localhost:8090/department/info
 * http://localhost:8090/organization/info
 
-##GraphiQl
+##GraphiQL
 * http://localhost:8090/employee/graphiql
+
+Test query:
+```
+query {
+  customerById(id: 1) {
+    name
+    orders {
+      id
+      status
+      product {
+        name
+      }
+    }
+  }
+}
+```
