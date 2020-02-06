@@ -1,29 +1,29 @@
-schema {
-    query: EmployeeQueries
-    mutation: EmployeeMutations
-}
+#schema {
+#    query: EmployeeQuerie
+#    mutation: EmployeeMutations
+#}
 
-type EmployeeQueries {
-    employees: [Employee]
-    employee(id: ID!): Employee!
-    employeesByOrganization(organizationId: Int!): [Employee]
-    employeesByDepartment(departmentId: Int!): [Employee]
-}
-
-type EmployeeMutations {
-    newEmployee(employee: EmployeeInput!): Employee
-    deleteEmployee(id: ID!) : Boolean
-    updateEmployee(id: ID!, employee: EmployeeInput!): Employee
-}
-
-input EmployeeInput {
-    organizationId: Int!
-    departmentId: Int!
-    name: String!
-    age: Int!
-    position: String!
-    salary: Int!
-}
+#type EmployeeQueries {
+#    employees: [Employee]
+#    employee(id: ID!): Employee!
+#    employeesByOrganization(organizationId: Int!): [Employee]
+#    employeesByDepartment(departmentId: Int!): [Employee]
+#}
+#
+#type EmployeeMutations {
+#    newEmployee(employee: EmployeeInput!): Employee
+#    deleteEmployee(id: ID!) : Boolean
+#    updateEmployee(id: ID!, employee: EmployeeInput!): Employee
+#}
+#
+#input EmployeeInput {
+#    organizationId: Int!
+#    departmentId: Int!
+#    name: String!
+#    age: Int!
+#    position: String!
+#    salary: Int!
+#}
 
 type Employee {
     id: ID!
@@ -33,4 +33,40 @@ type Employee {
     age: Int!
     position: String!
     salary: Int!
+}
+
+type Query {
+    customerById(id: ID!): Customer
+}
+
+type Mutation {
+    createOrder(order: CreateOrderInput!): Order!
+}
+
+input CreateOrderInput {
+    customerId: ID!
+    productId: ID!
+    quantity: Int!
+}
+
+type Customer {
+    id: ID!
+    name: String!
+    email: String!
+    orders: [Order]
+}
+
+type Order {
+    id: ID!
+    customer: Customer!
+    product: Product!
+    quantity: Int!
+    status: String!
+}
+
+type Product {
+    id: ID!
+    name: String
+    description: String
+    price: String
 }

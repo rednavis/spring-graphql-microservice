@@ -14,3 +14,6 @@
 * http://localhost:8090/employee/info
 * http://localhost:8090/department/info
 * http://localhost:8090/organization/info
+
+##GraphiQl
+* http://localhost:8090/employee/graphiql

@@ -11,10 +11,11 @@ ext {
     javaxServletApiVersion = '4.0.1'
 //    vertxVersion = '3.8.5'
     swaggerVersion = '2.9.2'
+    graphqlKickstartVersion = '6.0.1'
     lombokVersion = '1.18.10'
+//    graphqlJavaToolsVersion = '5.2.4'
     jupiterVersion = '5.6.0'
 //    graphqlJavaVersion = '14.0'
-//    graphqlJavaToolsVersion = '5.2.4'
 }
 
 // assumed that all subprojects are java-based modules
@@ -46,6 +47,9 @@ subprojects {
 
             dependency("io.springfox:springfox-swagger-ui:${swaggerVersion}")
             dependency("io.springfox:springfox-swagger2:${swaggerVersion}")
+
+            dependency("com.graphql-java-kickstart:graphql-spring-boot-starter:${graphqlKickstartVersion}")
+            dependency("com.graphql-java-kickstart:graphiql-spring-boot-starter:${graphqlKickstartVersion}")
 
             dependency("org.projectlombok:lombok:${lombokVersion}")
 

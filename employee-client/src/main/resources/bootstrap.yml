@@ -16,6 +16,13 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
+graphiql:
+  static:
+    basePath: /employee/
+  endpoint:
+    graphql: /employee/graphql
+    subscriptions: /employee/subscriptions
+
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
