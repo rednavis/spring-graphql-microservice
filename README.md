@@ -1,8 +1,8 @@
 # spring-graphql-microservice
 
 ##Build
-1. ./gradlew clean bootJar jibDockerBuild
-2. docker-compose up 
+1. `./gradlew clean bootJar jibDockerBuild`
+2. `docker-compose up` 
 
 ##Eureka
 * http://localhost:8761/

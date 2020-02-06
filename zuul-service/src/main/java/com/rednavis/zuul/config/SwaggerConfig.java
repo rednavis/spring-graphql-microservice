@@ -30,10 +30,10 @@ public class SwaggerConfig {
         .collect(Collectors.toList());
   }
 
-  private SwaggerResource createResource(String name, String location, String version) {
+  private SwaggerResource createResource(String name, String id, String version) {
     SwaggerResource swaggerResource = new SwaggerResource();
     swaggerResource.setName(name);
-    swaggerResource.setLocation("/" + location + "/v2/api-docs");
+    swaggerResource.setLocation("/" + id + "/v2/api-docs");
     swaggerResource.setSwaggerVersion(version);
     return swaggerResource;
   }
