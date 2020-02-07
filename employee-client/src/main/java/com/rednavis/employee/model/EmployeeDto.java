@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee {
+public class EmployeeDto {
 
-  private Long id;
-  private Long organizationId;
-  private Long departmentId;
+  private String id;
+  private String organizationId;
+  private String departmentId;
   private String name;
   private int age;
-  private String position;
+  private String city;
   private int salary;
 }

@@ -1,8 +1,8 @@
 package com.rednavis.employee.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.rednavis.employee.core.EmployeeService;
-import com.rednavis.employee.model.Employee;
+import com.rednavis.employee.model.EmployeeDto;
+import com.rednavis.employee.service.EmployeeService;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class EmployeeQueries implements GraphQLQueryResolver {
   @Autowired
   private EmployeeService employeeService;
 
-  public List<Employee> findAll() {
+  public List<EmployeeDto> findAll() {
     log.info("Employees find");
     return employeeService.findAll();
   }
@@ -26,10 +26,9 @@ public class EmployeeQueries implements GraphQLQueryResolver {
    * @param organizationId - organizationId.
    * @return
    */
-  public List<Employee> findByOrganization(long organizationId) {
+  public List<EmployeeDto> findByOrganizationId(String organizationId) {
     log.info("Employees find: organizationId={}", organizationId);
-    return null;
-    //return employeeService.findByOrganization(organizationId);
+    return employeeService.findByOrganizationId(organizationId);
   }
 
   /**
@@ -38,14 +37,13 @@ public class EmployeeQueries implements GraphQLQueryResolver {
    * @param departmentId - departmentId.
    * @return
    */
-  public List<Employee> findByDepartment(long departmentId) {
+  public List<EmployeeDto> findByDepartmentId(String departmentId) {
     log.info("Employees find: departmentId={}", departmentId);
-    return null;
-    //return employeeService.findByDepartment(departmentId);
+    return employeeService.findByDepartmentId(departmentId);
   }
 
-  public Employee findById(Long id) {
-    log.info("Employee find: id={}", id);
+  public EmployeeDto findById(String id) {
+    log.info("EmployeeEntity find: id={}", id);
     return employeeService.findById(id);
   }
 

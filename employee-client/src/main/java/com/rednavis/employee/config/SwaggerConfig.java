@@ -24,8 +24,8 @@ public class SwaggerConfig {
         .paths(PathSelectors.any())
         .build()
         .apiInfo(new ApiInfoBuilder().version("1.0")
-            .title("Employee API")
-            .description("Documentation Employee API v1.0")
+            .title("EmployeeEntity API")
+            .description("Documentation EmployeeEntity API v1.0")
             .build());
   }
 }

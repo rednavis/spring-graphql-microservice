@@ -8,6 +8,6 @@ public class EmployeeController {
 
   @GetMapping("/info")
   public String info() {
-    return "I'm Employee-Client";
+    return "I'm EmployeeEntity-Client";
   }
 }

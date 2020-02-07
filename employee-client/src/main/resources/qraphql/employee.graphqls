@@ -1,72 +1,63 @@
-#schema {
-#    query: EmployeeQuerie
-#    mutation: EmployeeMutations
-#}
+schema {
+    query: EmployeeQueries
+    mutation: EmployeeMutations
+}
 
-#type EmployeeQueries {
-#    employees: [Employee]
-#    employee(id: ID!): Employee!
-#    employeesByOrganization(organizationId: Int!): [Employee]
-#    employeesByDepartment(departmentId: Int!): [Employee]
-#}
-#
-#type EmployeeMutations {
-#    newEmployee(employee: EmployeeInput!): Employee
-#    deleteEmployee(id: ID!) : Boolean
-#    updateEmployee(id: ID!, employee: EmployeeInput!): Employee
-#}
-#
-#input EmployeeInput {
-#    organizationId: Int!
-#    departmentId: Int!
-#    name: String!
-#    age: Int!
-#    position: String!
-#    salary: Int!
-#}
+type EmployeeQueries {
+    findAll: [EmployeeDto]
+    findById(id: ID!): EmployeeDto!
+    findByOrganizationId(organizationId: String!): [EmployeeDto]
+    findByDepartmentId(departmentId: String!): [EmployeeDto]
+}
 
-type Employee {
-    id: ID!
-    organizationId: Int!
-    departmentId: Int!
+type EmployeeMutations {
+    insert(employeeDto: EmployeeInsert!): EmployeeDto
+    save(employeeDto: EmployeeUpdate!): EmployeeDto
+    deleteById(id: ID!) : Boolean
+}
+
+input EmployeeInsert {
+    organizationId: String!
+    departmentId: String!
     name: String!
     age: Int!
-    position: String!
+    city: String!
+    salary: Int!
+}
+
+input EmployeeUpdate {
+    id: ID!
+    organizationId: String!
+    departmentId: String!
+    name: String!
+    age: Int!
+    city: String!
+    salary: Int!
+}
+
+type EmployeeDto {
+    id: ID!
+    organizationId: String!
+    departmentId: String!
+    name: String!
+    age: Int!
+    city: String!
     salary: Int!
 }
 
 type Query {
-    customerById(id: ID!): Customer
+    bookById(id: ID): Book
 }
 
-type Mutation {
-    createOrder(order: CreateOrderInput!): Order!
-}
-
-input CreateOrderInput {
-    customerId: ID!
-    productId: ID!
-    quantity: Int!
-}
-
-type Customer {
-    id: ID!
-    name: String!
-    email: String!
-    orders: [Order]
-}
-
-type Order {
-    id: ID!
-    customer: Customer!
-    product: Product!
-    quantity: Int!
-    status: String!
-}
-
-type Product {
-    id: ID!
+type Book {
+    id: ID
     name: String
-    description: String
-    price: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
 }

@@ -1,6 +1,0 @@
-# Disable Spring Boot's default schema creation and instead
-# use schema.sql to create table
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: none

@@ -2,13 +2,17 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'com.google.cloud.tools.jib'
 
 dependencies {
-    implementation('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
-    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
-    implementation('org.springframework.boot:spring-boot-starter-web')
-    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation project(':core')
 
-    implementation('io.springfox:springfox-swagger-ui')
-    implementation('io.springfox:springfox-swagger2')
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    implementation 'io.springfox:springfox-swagger-ui'
+    implementation 'io.springfox:springfox-swagger2'
+
+    implementation 'net.andreinc.mockneat:mockneat'
 }
 
 jib {
