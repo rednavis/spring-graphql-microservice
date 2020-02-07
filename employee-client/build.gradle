@@ -12,9 +12,6 @@ dependencies {
 
     implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter'
     implementation 'com.graphql-java-kickstart:graphiql-spring-boot-starter'
-
-    implementation 'org.mapstruct:mapstruct'
-    annotationProcessor 'org.mapstruct:mapstruct-processor'
 }
 
 jib {

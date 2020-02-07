@@ -1,5 +1,6 @@
-package com.rednavis.employee.model;
+package com.rednavis.core.mapper;
 
+import com.rednavis.core.dto.EmployeeDto;
 import com.rednavis.core.model.EmployeeEntity;
 import java.util.List;
 import org.mapstruct.Mapper;

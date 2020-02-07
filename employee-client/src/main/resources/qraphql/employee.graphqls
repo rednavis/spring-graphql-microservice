@@ -6,8 +6,6 @@ schema {
 type EmployeeQueries {
     findAll: [EmployeeDto]
     findById(id: ID!): EmployeeDto!
-    findByOrganizationId(organizationId: String!): [EmployeeDto]
-    findByDepartmentId(departmentId: String!): [EmployeeDto]
 }
 
 type EmployeeMutations {
@@ -17,8 +15,6 @@ type EmployeeMutations {
 }
 
 input EmployeeInsert {
-    organizationId: String!
-    departmentId: String!
     name: String!
     age: Int!
     city: String!
@@ -27,8 +23,6 @@ input EmployeeInsert {
 
 input EmployeeUpdate {
     id: ID!
-    organizationId: String!
-    departmentId: String!
     name: String!
     age: Int!
     city: String!
@@ -37,27 +31,8 @@ input EmployeeUpdate {
 
 type EmployeeDto {
     id: ID!
-    organizationId: String!
-    departmentId: String!
     name: String!
     age: Int!
     city: String!
     salary: Int!
-}
-
-type Query {
-    bookById(id: ID): Book
-}
-
-type Book {
-    id: ID
-    name: String
-    pageCount: Int
-    author: Author
-}
-
-type Author {
-    id: ID
-    firstName: String
-    lastName: String
 }

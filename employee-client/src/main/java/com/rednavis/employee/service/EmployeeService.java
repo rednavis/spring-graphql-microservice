@@ -1,6 +1,6 @@
 package com.rednavis.employee.service;
 
-import com.rednavis.employee.model.EmployeeDto;
+import com.rednavis.core.dto.EmployeeDto;
 import java.util.List;
 
 public interface EmployeeService {
@@ -14,8 +14,4 @@ public interface EmployeeService {
   List<EmployeeDto> findAll();
 
   EmployeeDto findById(String id);
-
-  List<EmployeeDto> findByOrganizationId(String organizationId);
-
-  List<EmployeeDto> findByDepartmentId(String departmentId);
 }

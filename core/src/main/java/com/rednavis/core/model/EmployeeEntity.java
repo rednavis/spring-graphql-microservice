@@ -14,8 +14,6 @@ public class EmployeeEntity {
 
   @Id
   private String id;
-  private String organizationId;
-  private String departmentId;
   private String name;
   private int age;
   private String city;

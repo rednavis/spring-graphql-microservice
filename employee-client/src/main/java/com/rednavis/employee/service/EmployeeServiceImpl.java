@@ -1,9 +1,9 @@
 package com.rednavis.employee.service;
 
+import com.rednavis.core.dto.EmployeeDto;
+import com.rednavis.core.mapper.EmployeeMapper;
 import com.rednavis.core.model.EmployeeEntity;
 import com.rednavis.core.repository.EmployeeRepository;
-import com.rednavis.employee.model.EmployeeDto;
-import com.rednavis.employee.model.EmployeeMapper;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,15 +42,5 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   public EmployeeDto findById(String id) {
     return EMPLOYEE_MAPPER.entityToDto(employeeRepository.findById(id).orElse(new EmployeeEntity()));
-  }
-
-  @Override
-  public List<EmployeeDto> findByOrganizationId(String organizationId) {
-    return EMPLOYEE_MAPPER.listEntityTolistDto(employeeRepository.findByOrganizationId(organizationId));
-  }
-
-  @Override
-  public List<EmployeeDto> findByDepartmentId(String departmentId) {
-    return EMPLOYEE_MAPPER.listEntityTolistDto(employeeRepository.findByDepartmentId(departmentId));
   }
 }

@@ -1,7 +1,7 @@
 package com.rednavis.employee.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.rednavis.employee.model.EmployeeDto;
+import com.rednavis.core.dto.EmployeeDto;
 import com.rednavis.employee.service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
