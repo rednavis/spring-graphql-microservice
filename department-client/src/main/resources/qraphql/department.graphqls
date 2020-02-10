@@ -1,0 +1,22 @@
+schema {
+    query: DepartmentQueries
+}
+
+type DepartmentQueries {
+    findAll: [DepartmentDto]
+    findById(id: ID!): DepartmentDto!
+}
+
+type DepartmentDto {
+    id: ID!
+    name: String!
+    employees: [EmployeeDto]
+}
+
+type EmployeeDto {
+    id: ID!
+    name: String!
+    age: Int!
+    city: String!
+    salary: Int!
+}

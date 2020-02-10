@@ -1,43 +1,30 @@
 schema {
   query: OrganizationQueries
-  mutation: OrganizationMutations
 }
 
 type OrganizationQueries {
-  organizations: [Organization]
-  organization(id: ID!): Organization!
-  organizationByIdWithEmployees(id: Int!): Organization
-  organizationByIdWithDepartments(id: Int!): Organization
-  organizationByIdWithDepartmentsAndEmployees(id: Int!): Organization
+  findAll: [OrganizationDto]
+  findById(id: ID!): OrganizationDto!
 }
 
-type OrganizationMutations {
-  newOrganization(organization: OrganizationInput!): Organization
-  deleteOrganization(id: ID!) : Boolean
-  updateOrganization(id: ID!, organization: OrganizationInput!): Organization
-}
-
-input OrganizationInput {
-  organizationId: Int!
-  name: String!
-}
-
-type Organization {
+type OrganizationDto {
   id: ID!
   name: String!
   address: String!
-  employees: [Employee]
-  departments: [Department]
+#  employees: [EmployeeDto]
+  departments: [DepartmentDto]
 }
 
-type Department {
+type DepartmentDto {
   id: ID!
   name: String!
-  employees: [Employee]
+  employees: [EmployeeDto]
 }
 
-type Employee {
+type EmployeeDto {
   id: ID!
   name: String!
-  position: String!
+  age: Int!
+  city: String!
+  salary: Int!
 }

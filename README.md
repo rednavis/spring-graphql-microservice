@@ -19,7 +19,7 @@
 * http://localhost:8090/mock
 
 ## GraphiQL
-* http://localhost:8090/employeeEntity/graphiql
+* http://localhost:8090/employee/graphiql
 
 Test query:
 **findAll**
@@ -83,5 +83,75 @@ mutation {
 ```
 mutation {
   deleteById(id: "5e3d3362e7113164ae7029e8")
+}
+```
+
+* http://localhost:8090/department/graphiql
+
+Test query:
+
+**findAll**
+```
+query {
+  findAll {
+    id
+    name
+    employees {
+      id
+      name
+      age
+      city
+      salary
+    }
+  }
+}
+```
+
+**findById**
+```
+query {
+  findById(id: "5e3d5a644534b56469a002ba") {
+    id
+    name
+    employees {
+      id
+      name
+      age
+      city
+      salary
+    }
+  }
+}
+```
+
+* http://localhost:8090/organization/graphiql
+
+Test query:
+
+**findAll**
+```
+query {
+  findAll {
+    id
+    name
+    departments {
+      id
+      name
+    }
+  }
+}
+```
+
+**findById**
+```
+query {
+  findById(id: "5e3d5a644534b56469a002ba") {
+    id
+    name
+    departments {
+      id
+      name
+    }
+  }
 }
 ```

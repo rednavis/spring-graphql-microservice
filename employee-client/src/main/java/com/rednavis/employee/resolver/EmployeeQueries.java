@@ -20,32 +20,8 @@ public class EmployeeQueries implements GraphQLQueryResolver {
     return employeeService.findAll();
   }
 
-  /**
-   * findByOrganization.
-   *
-   * @param organizationId - organizationId.
-   * @return
-   */
-  public List<EmployeeDto> findByOrganizationId(String organizationId) {
-    log.info("Employees find: organizationId={}", organizationId);
-    return null;
-    //return employeeService.findByOrganizationId(organizationId);
-  }
-
-  /**
-   * findByDepartment.
-   *
-   * @param departmentId - departmentId.
-   * @return
-   */
-  public List<EmployeeDto> findByDepartmentId(String departmentId) {
-    log.info("Employees find: departmentId={}", departmentId);
-    return null;
-    //return employeeService.findByDepartmentId(departmentId);
-  }
-
   public EmployeeDto findById(String id) {
-    log.info("EmployeeEntity find: id={}", id);
+    log.info("EmployeeDto find: id={}", id);
     return employeeService.findById(id);
   }
 

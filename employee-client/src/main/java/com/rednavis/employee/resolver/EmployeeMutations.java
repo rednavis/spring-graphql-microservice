@@ -20,7 +20,7 @@ public class EmployeeMutations implements GraphQLMutationResolver {
   }
 
   public EmployeeDto save(EmployeeDto employeeDto) {
-    log.info("Employee update: employeeEntity={}", employeeDto);
+    log.info("Employee update: EmployeeDto={}", employeeDto);
     return employeeService.save(employeeDto);
   }
 
