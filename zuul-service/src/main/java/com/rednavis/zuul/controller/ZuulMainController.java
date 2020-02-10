@@ -9,9 +9,9 @@ import com.rednavis.core.repository.OrganizationRepository;
 import com.rednavis.zuul.model.MockDto;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
 import net.andreinc.mockneat.MockNeat;
 import net.andreinc.mockneat.types.enums.NameType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.BulkOperations.BulkMode;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -19,16 +19,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@AllArgsConstructor
 public class ZuulMainController {
 
-  @Autowired
-  private OrganizationRepository organizationRepository;
-  @Autowired
-  private DepartmentRepository departmentRepository;
-  @Autowired
-  private EmployeeRepository employeeRepository;
-  @Autowired
-  private MongoTemplate mongoTemplate;
+  private final OrganizationRepository organizationRepository;
+  private final DepartmentRepository departmentRepository;
+  private final EmployeeRepository employeeRepository;
+  private final MongoTemplate mongoTemplate;
 
   /**
    * generateMockEmployee.

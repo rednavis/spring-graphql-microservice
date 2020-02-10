@@ -4,15 +4,15 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.rednavis.core.dto.DepartmentDto;
 import com.rednavis.department.service.DepartmentService;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@AllArgsConstructor
 public class DepartmentQueries implements GraphQLQueryResolver {
 
-  @Autowired
   private DepartmentService departmentService;
 
   public List<DepartmentDto> findAll() {

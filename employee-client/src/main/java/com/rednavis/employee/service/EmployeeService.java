@@ -1,17 +1,43 @@
 package com.rednavis.employee.service;
 
+import static com.rednavis.core.mapper.MapperProvider.employeeMapper;
+
 import com.rednavis.core.dto.EmployeeDto;
+import com.rednavis.core.mapper.EmployeeMapper;
+import com.rednavis.core.model.EmployeeEntity;
+import com.rednavis.core.repository.EmployeeRepository;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-public interface EmployeeService {
+@Service
+@AllArgsConstructor
+public class EmployeeService {
 
-  EmployeeDto insert(EmployeeDto employeeDto);
+  private static final EmployeeMapper EMPLOYEE_MAPPER = employeeMapper();
 
-  EmployeeDto save(EmployeeDto employeeDto);
+  private EmployeeRepository employeeRepository;
 
-  boolean deleteById(String id);
+  public EmployeeDto insert(EmployeeDto employeeDto) {
+    EmployeeEntity employeeEntity = EMPLOYEE_MAPPER.dtoToEntity(employeeDto);
+    return EMPLOYEE_MAPPER.entityToDto(employeeRepository.insert(employeeEntity));
+  }
 
-  List<EmployeeDto> findAll();
+  public EmployeeDto save(EmployeeDto employeeDto) {
+    EmployeeEntity employeeEntity = EMPLOYEE_MAPPER.dtoToEntity(employeeDto);
+    return EMPLOYEE_MAPPER.entityToDto(employeeRepository.save(employeeEntity));
+  }
 
-  EmployeeDto findById(String id);
+  public boolean deleteById(String id) {
+    employeeRepository.deleteById(id);
+    return true;
+  }
+
+  public List<EmployeeDto> findAll() {
+    return EMPLOYEE_MAPPER.listEntityToListDto(employeeRepository.findAll());
+  }
+
+  public EmployeeDto findById(String id) {
+    return EMPLOYEE_MAPPER.entityToDto(employeeRepository.findById(id).orElse(new EmployeeEntity()));
+  }
 }
