@@ -10,7 +10,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-02-07T14:37:10+0300",
+    date = "2020-02-13T16:11:07+0300",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.6 (Azul Systems, Inc.)"
 )
 public class DepartmentMapperImpl implements DepartmentMapper {
@@ -46,7 +46,7 @@ public class DepartmentMapperImpl implements DepartmentMapper {
     }
 
     @Override
-    public List<DepartmentEntity> listDtoTolistEntity(List<DepartmentDto> departmentDtoList) {
+    public List<DepartmentEntity> listDtoToListEntity(List<DepartmentDto> departmentDtoList) {
         if ( departmentDtoList == null ) {
             return null;
         }
@@ -60,7 +60,7 @@ public class DepartmentMapperImpl implements DepartmentMapper {
     }
 
     @Override
-    public List<DepartmentDto> listEntityTolistDto(List<DepartmentEntity> departmentEntityList) {
+    public List<DepartmentDto> listEntityToListDto(List<DepartmentEntity> departmentEntityList) {
         if ( departmentEntityList == null ) {
             return null;
         }

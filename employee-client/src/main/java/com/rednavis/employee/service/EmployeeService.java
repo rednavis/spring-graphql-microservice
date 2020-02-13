@@ -40,4 +40,8 @@ public class EmployeeService {
   public EmployeeDto findById(String id) {
     return EMPLOYEE_MAPPER.entityToDto(employeeRepository.findById(id).orElse(new EmployeeEntity()));
   }
+
+  public void deleteAll() {
+    employeeRepository.deleteAll();
+  }
 }

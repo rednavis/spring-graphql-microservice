@@ -1,0 +1,9 @@
+query {
+    findAll {
+        id
+        name
+        age
+        city
+        salary
+    }
+}

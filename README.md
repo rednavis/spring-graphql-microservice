@@ -22,6 +22,7 @@
 * http://localhost:8090/employee/graphiql
 
 Test query:
+
 **findAll**
 ```
 query {

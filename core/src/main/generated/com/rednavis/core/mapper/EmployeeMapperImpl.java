@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-02-07T14:37:10+0300",
+    date = "2020-02-13T16:11:07+0300",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.6 (Azul Systems, Inc.)"
 )
 public class EmployeeMapperImpl implements EmployeeMapper {
@@ -48,7 +48,7 @@ public class EmployeeMapperImpl implements EmployeeMapper {
     }
 
     @Override
-    public List<EmployeeEntity> listDtoTolistEntity(List<EmployeeDto> employeeDtoList) {
+    public List<EmployeeEntity> listDtoToListEntity(List<EmployeeDto> employeeDtoList) {
         if ( employeeDtoList == null ) {
             return null;
         }
@@ -62,7 +62,7 @@ public class EmployeeMapperImpl implements EmployeeMapper {
     }
 
     @Override
-    public List<EmployeeDto> listEntityTolistDto(List<EmployeeEntity> employeeEntityList) {
+    public List<EmployeeDto> listEntityToListDto(List<EmployeeEntity> employeeEntityList) {
         if ( employeeEntityList == null ) {
             return null;
         }

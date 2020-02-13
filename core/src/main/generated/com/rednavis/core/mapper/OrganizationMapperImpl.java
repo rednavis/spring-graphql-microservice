@@ -12,7 +12,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-02-07T14:37:10+0300",
+    date = "2020-02-13T16:11:07+0300",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.6 (Azul Systems, Inc.)"
 )
 public class OrganizationMapperImpl implements OrganizationMapper {
@@ -29,7 +29,6 @@ public class OrganizationMapperImpl implements OrganizationMapper {
         organizationEntity.setName( organizationDto.getName() );
         organizationEntity.setAddress( organizationDto.getAddress() );
         organizationEntity.setDepartments( departmentDtoListToDepartmentEntityList( organizationDto.getDepartments() ) );
-        organizationEntity.setEmployees( employeeDtoListToEmployeeEntityList( organizationDto.getEmployees() ) );
 
         return organizationEntity;
     }
@@ -46,13 +45,12 @@ public class OrganizationMapperImpl implements OrganizationMapper {
         organizationDto.setName( organizationEntity.getName() );
         organizationDto.setAddress( organizationEntity.getAddress() );
         organizationDto.setDepartments( departmentEntityListToDepartmentDtoList( organizationEntity.getDepartments() ) );
-        organizationDto.setEmployees( employeeEntityListToEmployeeDtoList( organizationEntity.getEmployees() ) );
 
         return organizationDto;
     }
 
     @Override
-    public List<OrganizationEntity> listDtoTolistEntity(List<OrganizationDto> organizationDtos) {
+    public List<OrganizationEntity> listDtoToListEntity(List<OrganizationDto> organizationDtos) {
         if ( organizationDtos == null ) {
             return null;
         }
@@ -66,7 +64,7 @@ public class OrganizationMapperImpl implements OrganizationMapper {
     }
 
     @Override
-    public List<OrganizationDto> listEntityTolistDto(List<OrganizationEntity> organizationEntityList) {
+    public List<OrganizationDto> listEntityToListDto(List<OrganizationEntity> organizationEntityList) {
         if ( organizationEntityList == null ) {
             return null;
         }
