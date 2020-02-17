@@ -60,12 +60,9 @@ Temporary Items
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
-.idea/*
+.idea
 *.iml
 *.ipr
-
-# Exclude Code Style
-!/.idea/codeStyles/
 
 # CMake
 cmake-build-*/

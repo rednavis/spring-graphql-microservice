@@ -28,6 +28,9 @@ public class EmpolyeeGraphQlTest extends AbstractMongoContainer {
   @Autowired
   private EmployeeService employeeService;
 
+  /**
+   * init.
+   */
   @BeforeEach
   public void init() {
     employeeService.deleteAll();

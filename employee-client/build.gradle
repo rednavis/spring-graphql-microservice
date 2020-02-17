@@ -17,7 +17,7 @@ dependencies {
 
 jib {
     from {
-        image = "adoptopenjdk:11-jre-hotspot"
+        image = "adoptopenjdk:jre-12.0.2_10"
     }
     to {
         image = "employee-client:latest"
