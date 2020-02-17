@@ -22,6 +22,8 @@ ext {
 allprojects {
 //    ./gradlew clean htmlDependencyReport
     apply plugin: 'project-report'
+//     needed because of multi-module configuration
+    apply plugin: 'jacoco'
 }
 
 // assumed that all subprojects are java-based modules

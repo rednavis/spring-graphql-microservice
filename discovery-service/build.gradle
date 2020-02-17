@@ -8,7 +8,7 @@ dependencies {
 
 jib {
     from {
-        image = "adoptopenjdk:jre-12.0.2_10"
+        image = "adoptopenjdk:12-jre-hotspot"
     }
     to {
         image = "discovery-service:latest"
