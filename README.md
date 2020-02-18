@@ -3,29 +3,66 @@
 [![codecov](https://codecov.io/gh/rednavis/spring-graphql-microservice/branch/master/graph/badge.svg)](https://codecov.io/gh/rednavis/spring-graphql-microservice)
 
 # spring-graphql-microservice
+Demo of using Spring, GraphQL and microservices.
 
-## Build
-1. `./gradlew clean bootJar jibDockerBuild`
-2. `docker-compose up` 
+## Prerequisites
+  - OpenJDK 12.0.2 or higher
+  - Gradle 6.1.1 or higher
 
-## Eureka
-* http://localhost:8761/
+## How to build
+```
+$ ./gradlew clean bootJar jibDockerBuild
+```
 
-## Swagger
-* http://localhost:8090/swagger-ui.html
+## How to lauch
+After build run 
+```
+$ docker-compose up
+```
 
-## Test microservice status
-* http://localhost:8090/employeeEntity/info
-* http://localhost:8090/department/info
-* http://localhost:8090/organization/info
+## Heroku setup
+  - Login to your heroku account from CLI
+```
+$ heroku login
+```
+  - Create a new application on Heroku
+```
+$ heroku apps:create
+```
+  - Add a MongoDB database to your Heroku application with MongoLab. Note that your Heroku account must have a credit card attached in order to use free add-ons other than the PostgreSQL and MySQL add-ons.
+```
+$ heroku addons:create mongolab:sandbox
+```
+  - Deploy code 
+```
+$ git push heroku master
+```
+  - Look at your application logs to see what is happening behind the scenes.
+```
+$ heroku logs
+```
+  - If your application deploys without timing out then open it as follows.
+```
+$ heroku open
+```
 
-## Generate mock data
-* http://localhost:8090/mock
+## REST API exposed
+### Eureka
+  - http://localhost:8761/
 
-## GraphiQL
-* http://localhost:8090/employee/graphiql
+### Swagger
+  - http://localhost:8090/swagger-ui.html
 
-Test query:
+### Test microservice status
+  - http://localhost:8090/employeeEntity/info
+  - http://localhost:8090/department/info
+  - http://localhost:8090/organization/info
+
+### Generate mock data
+  - http://localhost:8090/mock
+
+### GraphiQL
+  - http://localhost:8090/employee/graphiql
 
 **findAll**
 ```
@@ -91,9 +128,7 @@ mutation {
 }
 ```
 
-* http://localhost:8090/department/graphiql
-
-Test query:
+  - http://localhost:8090/department/graphiql
 
 **findAll**
 ```
@@ -129,9 +164,7 @@ query {
 }
 ```
 
-* http://localhost:8090/organization/graphiql
-
-Test query:
+  - http://localhost:8090/organization/graphiql
 
 **findAll**
 ```

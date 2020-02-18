@@ -2,12 +2,8 @@ eureka:
   client:
     enabled: false
 
-  #spring:
-  #  data:
-  #    mongodb:
-  #      database: test
-  #  main:
-  #    web-application-type: none
-  # data:
-  #  mongodb:
-  #   uri: mongodb://localhost:37017/test
+spring:
+  data:
+    mongodb:
+      database: spring-graphql-microservice
+      host: localhost

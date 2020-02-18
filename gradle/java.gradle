@@ -1,7 +1,14 @@
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = JavaVersion.VERSION_12
+targetCompatibility = JavaVersion.VERSION_12
+
+group 'com.rednavis'
+version '1.0-SNAPSHOT'
 
 compileJava {
+    options.compilerArgs << '-XDignore.symbol.file -Xlint:unchecked'
     options.encoding = 'UTF-8'
 }
 
@@ -9,13 +16,18 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-group 'rednavis'
-version '1.0-SNAPSHOT'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 configurations {
     testAnnotationProcessor.extendsFrom annotationProcessor
+    testCompile.extendsFrom compile
 }
 
 test {
     useJUnitPlatform()
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
 }
