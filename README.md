@@ -1,7 +1,6 @@
-[![Build Status](https://travis-ci.com/rednavis/spring-webflux-swagger-demo.svg?branch=master)](https://travis-ci.com/rednavis/spring-webflux-swagger-demo)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/143579ed76ba41e88c2d0a1d8744a48d)](https://app.codacy.com/gh/rednavis/spring-webflux-swagger-demo?utm_source=github.com&utm_medium=referral&utm_content=rednavis/spring-webflux-swagger-demo&utm_campaign=Badge_Grade_Dashboard)
-[![codecov](https://codecov.io/gh/rednavis/spring-webflux-swagger-demo/branch/master/graph/badge.svg)](https://codecov.io/gh/rednavis/spring-webflux-swagger-demo)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.com/rednavis/spring-graphql-microservice.svg?branch=master)](https://travis-ci.com/rednavis/spring-graphql-microservice)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7d36295503574b40bb06bd4975dc40f6)](https://app.codacy.com/gh/rednavis/spring-graphql-microservice?utm_source=github.com&utm_medium=referral&utm_content=rednavis/spring-graphql-microservice&utm_campaign=Badge_Grade_Settings)
+[![codecov](https://codecov.io/gh/rednavis/spring-graphql-microservice/branch/master/graph/badge.svg)](https://codecov.io/gh/rednavis/spring-graphql-microservice)
 
 # spring-graphql-microservice
 Demo of using Spring, GraphQL and microservices.
