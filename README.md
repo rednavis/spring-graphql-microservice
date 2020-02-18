@@ -1,5 +1,7 @@
 # spring-graphql-microservice
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7d36295503574b40bb06bd4975dc40f6)](https://app.codacy.com/gh/rednavis/spring-graphql-microservice?utm_source=github.com&utm_medium=referral&utm_content=rednavis/spring-graphql-microservice&utm_campaign=Badge_Grade_Settings)
+
 ## Build
 1. `./gradlew clean bootJar jibDockerBuild`
 2. `docker-compose up` 
