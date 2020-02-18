@@ -7,7 +7,7 @@ coverage:
   range: "80...100"
 
   status:
-    project: yes
+    project:
       default:
         # basic
         target: auto
@@ -35,4 +35,4 @@ parsers:
 comment:
   layout: "reach,diff,flags,tree"
   behavior: default
-  require_changes:
+  require_changes: no

@@ -11,27 +11,58 @@ Demo of using Spring, GraphQL and microservices.
 - Gradle 6.1.1 or higher
 
 ## How to build
-`./gradlew clean bootJar jibDockerBuild`
+```
+$ ./gradlew clean bootJar jibDockerBuild
+```
 
 ## How to lauch
-After build run `docker-compose up`
+After build run 
+```
+$ docker-compose up
+```
 
-# REST API exposed
-## Eureka
+## Heroku setup
+* Login to your heroku account from CLI
+```
+$ heroku login
+```
+* Create a new application on Heroku
+```
+$ heroku apps:create
+```
+* Add a MongoDB database to your Heroku application with MongoLab. Note that your Heroku account must have a credit card attached in order to use free add-ons other than the PostgreSQL and MySQL add-ons.
+```
+$ heroku addons:create mongolab:sandbox
+```
+* Deploy code 
+```
+$ git push heroku master
+```
+* Look at your application logs to see what is happening behind the scenes.
+```
+$ heroku logs
+```
+* If your application deploys without timing out then open it as follows.
+```
+$ heroku open
+```
+
+## REST API exposed
+### Eureka
 * http://localhost:8761/
 
-## Swagger
+### Swagger
 * http://localhost:8090/swagger-ui.html
 
-## Test microservice status
+### Test microservice status
 * http://localhost:8090/employeeEntity/info
 * http://localhost:8090/department/info
 * http://localhost:8090/organization/info
 
-## Generate mock data
+### Generate mock data
 * http://localhost:8090/mock
 
-## GraphiQL
+### GraphiQL
 * http://localhost:8090/employee/graphiql
 
 **findAll**

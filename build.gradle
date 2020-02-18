@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'idea'
+    id 'jacoco'
     id 'org.springframework.boot' version '2.2.4.RELEASE' apply false
     id 'com.google.cloud.tools.jib' version '2.0.0' apply false
 }
