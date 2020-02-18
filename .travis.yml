@@ -18,7 +18,7 @@ matrix:
 
 script:
   - ./gradlew --version
-  - ./gradlew build jacocoTestReport
+  - ./gradlew build codeCoverageReport
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -30,5 +30,5 @@ cache:
     - $HOME/.gradle/wrapper/
 
 after_success:
-  - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r build/reports/jacoco/test/jacocoTestReport.xml
   - bash <(curl -s https://codecov.io/bash)
+  - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r build/reports/jacoco/report.xml
