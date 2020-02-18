@@ -1,8 +1,0 @@
-embedded:
-  container:
-    mongodb:
-      #enabled: true
-      #startup-timeout: 30
-      docker-image: 'mongo:4.2.3'
-      #host: localhost
-      #port: 37017
