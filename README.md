@@ -6,8 +6,8 @@
 Demo of using Spring, GraphQL and microservices.
 
 ## Prerequisites
-- OpenJDK 12.0.2 or higher
-- Gradle 6.1.1 or higher
+  - OpenJDK 12.0.2 or higher
+  - Gradle 6.1.1 or higher
 
 ## How to build
 ```
@@ -21,48 +21,48 @@ $ docker-compose up
 ```
 
 ## Heroku setup
-* Login to your heroku account from CLI
+  - Login to your heroku account from CLI
 ```
 $ heroku login
 ```
-* Create a new application on Heroku
+  - Create a new application on Heroku
 ```
 $ heroku apps:create
 ```
-* Add a MongoDB database to your Heroku application with MongoLab. Note that your Heroku account must have a credit card attached in order to use free add-ons other than the PostgreSQL and MySQL add-ons.
+  - Add a MongoDB database to your Heroku application with MongoLab. Note that your Heroku account must have a credit card attached in order to use free add-ons other than the PostgreSQL and MySQL add-ons.
 ```
 $ heroku addons:create mongolab:sandbox
 ```
-* Deploy code 
+  - Deploy code 
 ```
 $ git push heroku master
 ```
-* Look at your application logs to see what is happening behind the scenes.
+  - Look at your application logs to see what is happening behind the scenes.
 ```
 $ heroku logs
 ```
-* If your application deploys without timing out then open it as follows.
+  - If your application deploys without timing out then open it as follows.
 ```
 $ heroku open
 ```
 
 ## REST API exposed
 ### Eureka
-* http://localhost:8761/
+  - http://localhost:8761/
 
 ### Swagger
-* http://localhost:8090/swagger-ui.html
+  - http://localhost:8090/swagger-ui.html
 
 ### Test microservice status
-* http://localhost:8090/employeeEntity/info
-* http://localhost:8090/department/info
-* http://localhost:8090/organization/info
+  - http://localhost:8090/employeeEntity/info
+  - http://localhost:8090/department/info
+  - http://localhost:8090/organization/info
 
 ### Generate mock data
-* http://localhost:8090/mock
+  - http://localhost:8090/mock
 
 ### GraphiQL
-* http://localhost:8090/employee/graphiql
+  - http://localhost:8090/employee/graphiql
 
 **findAll**
 ```
@@ -128,7 +128,7 @@ mutation {
 }
 ```
 
-* http://localhost:8090/department/graphiql
+  - http://localhost:8090/department/graphiql
 
 **findAll**
 ```
@@ -164,7 +164,7 @@ query {
 }
 ```
 
-* http://localhost:8090/organization/graphiql
+  - http://localhost:8090/organization/graphiql
 
 **findAll**
 ```
