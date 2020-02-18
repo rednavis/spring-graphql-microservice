@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.rednavis.core.model.EmployeeEntity;
 import com.rednavis.employee.service.EmployeeService;
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
 import net.andreinc.mockneat.MockNeat;
 import net.andreinc.mockneat.types.enums.NameType;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +24,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-@Slf4j
 @Testcontainers
 //@GraphQLTest
 @ActiveProfiles("test")
@@ -74,7 +72,6 @@ public class EmpolyeeGraphQlTest {
   static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-      log.info("spring.data.mongodb.port=" + MONGO_DB_CONTAINER.getPort());
       TestPropertyValues.of("spring.data.mongodb.port=" + MONGO_DB_CONTAINER.getPort())
           .applyTo(configurableApplicationContext.getEnvironment());
     }
